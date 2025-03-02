@@ -22,6 +22,9 @@ add_executable(vncviewer
   MonitorIndicesParameter.cxx
   vncviewer.cxx)
 
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export $(dbus-launch)
+
 if(WIN32 AND NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
   set_target_properties(vncviewer PROPERTIES WIN32_EXECUTABLE TRUE)
 endif()
